@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import BeforeAfterImg from '../../assets/images/before_after.png';
+import RhinoplastyImg from '../../assets/images/rhinoplasty.png';
+import SeptoplastyImg from '../../assets/images/septoplasty.png';
+import OtoplastyImg from '../../assets/images/otoplasty.png';
+import ClinicImg from '../../assets/images/clinic.png';
 import './BeforeAfter.css';
 
 const galleryItems = [
@@ -10,35 +13,35 @@ const galleryItems = [
     title: 'Rhinoplastie',
     description: 'Correction esthétique et fonctionnelle du nez',
     category: 'Chirurgie Esthétique',
-    image: BeforeAfterImg
+    image: RhinoplastyImg
   },
   {
     id: 2,
     title: 'Septoplastie',
     description: 'Redressement de la cloison nasale',
     category: 'Chirurgie Fonctionnelle',
-    image: BeforeAfterImg
+    image: SeptoplastyImg
   },
   {
     id: 3,
     title: 'Otoplastie',
     description: 'Correction des oreilles décollées',
     category: 'Chirurgie Esthétique',
-    image: BeforeAfterImg
+    image: OtoplastyImg
   },
   {
     id: 4,
     title: 'Cabinet Médical',
     description: 'Salle de consultation moderne et équipée',
     category: 'Notre Cabinet',
-    image: BeforeAfterImg
+    image: ClinicImg
   },
   {
     id: 5,
     title: 'Espace Accueil',
     description: 'Un environnement confortable et rassurant',
     category: 'Notre Cabinet',
-    image: BeforeAfterImg
+    image: ClinicImg
   }
 ];
 
