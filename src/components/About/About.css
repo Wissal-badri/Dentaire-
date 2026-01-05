@@ -1,0 +1,101 @@
+.about-section {
+    padding: 60px 5%;
+}
+
+.about-image {
+    position: relative;
+}
+
+.doctor-portrait {
+    border-radius: 30px;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    box-shadow: 15px 15px 0 var(--bg-soft);
+}
+
+.exp-badge {
+    position: absolute;
+    bottom: 20px;
+    right: -10px;
+    background: var(--primary);
+    color: white;
+    padding: 18px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(58, 141, 255, 0.3);
+}
+
+.exp-badge h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.exp-badge p {
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.specialty {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.about-stats {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-card {
+    display: flex;
+    gap: 15px;
+    padding: 16px;
+    background: white;
+    border-radius: 14px;
+    border: 1px solid #f1f5f9;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    border-color: var(--primary-light);
+    transform: translateX(10px);
+}
+
+.stat-icon {
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.stat-card h4 {
+    font-size: 1rem;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.stat-card p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+@media (max-width: 968px) {
+    .doctor-portrait {
+        margin: 0 auto;
+    }
+
+    .exp-badge {
+        right: 20px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .stat-card {
+        text-align: left;
+    }
+}
