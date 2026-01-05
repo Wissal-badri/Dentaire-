@@ -7,6 +7,7 @@ import BeforeAfter from './components/BeforeAfter/BeforeAfter';
 import Reviews from './components/Reviews/Reviews';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import WhatsAppButton from './components/Common/WhatsAppButton';
 
 // Global Styles
 import './App.css';
@@ -22,6 +23,7 @@ function App() {
       <Reviews />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }

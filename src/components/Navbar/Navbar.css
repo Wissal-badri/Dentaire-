@@ -76,6 +76,18 @@
     transform: translateX(-50%) scale(1);
 }
 
+.nav-links a.active:not(.btn) {
+    color: var(--primary);
+}
+
+.nav-links a.active:not(.btn)::before {
+    width: 100%;
+}
+
+.nav-links a.active:not(.btn)::after {
+    transform: translateX(-50%) scale(1);
+}
+
 .nav-btn {
     padding: 12px 28px !important;
     font-size: 0.9rem !important;

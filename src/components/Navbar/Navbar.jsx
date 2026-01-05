@@ -7,12 +7,45 @@ import './Navbar.css';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('accueil');
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+      
+      // Détection de la section active
+      const sections = ['accueil', 'docteur', 'services', 'resultats'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+      setMobileMenuOpen(false);
+    }
+  };
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -20,11 +53,39 @@ const Navbar = () => {
         <Logo />
         
         <div className="nav-links desktop-only">
-          <a href="#accueil">Accueil</a>
-          <a href="#docteur">À propos</a>
-          <a href="#services">Services</a>
-          <a href="#resultats">Galerie</a>
-          <a href="#contact" className="btn btn-primary nav-btn">
+          <a 
+            href="#accueil" 
+            onClick={(e) => handleNavClick(e, 'accueil')}
+            className={activeSection === 'accueil' ? 'active' : ''}
+          >
+            Accueil
+          </a>
+          <a 
+            href="#docteur" 
+            onClick={(e) => handleNavClick(e, 'docteur')}
+            className={activeSection === 'docteur' ? 'active' : ''}
+          >
+            À propos
+          </a>
+          <a 
+            href="#services" 
+            onClick={(e) => handleNavClick(e, 'services')}
+            className={activeSection === 'services' ? 'active' : ''}
+          >
+            Services
+          </a>
+          <a 
+            href="#resultats" 
+            onClick={(e) => handleNavClick(e, 'resultats')}
+            className={activeSection === 'resultats' ? 'active' : ''}
+          >
+            Galerie
+          </a>
+          <a 
+            href="#contact" 
+            onClick={(e) => handleNavClick(e, 'contact')}
+            className="btn btn-primary nav-btn"
+          >
             Nous contacter <Send size={16} />
           </a>
         </div>
@@ -43,11 +104,11 @@ const Navbar = () => {
             className="mobile-nav-panel glass"
           >
             <div className="mobile-links">
-              <a href="#accueil" onClick={() => setMobileMenuOpen(false)}>Accueil</a>
-              <a href="#docteur" onClick={() => setMobileMenuOpen(false)}>À propos</a>
-              <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
-              <a href="#resultats" onClick={() => setMobileMenuOpen(false)}>Galerie</a>
-              <a href="#contact" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Nous contacter</a>
+              <a href="#accueil" onClick={(e) => handleNavClick(e, 'accueil')}>Accueil</a>
+              <a href="#docteur" onClick={(e) => handleNavClick(e, 'docteur')}>À propos</a>
+              <a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Services</a>
+              <a href="#resultats" onClick={(e) => handleNavClick(e, 'resultats')}>Galerie</a>
+              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="btn btn-primary">Nous contacter</a>
             </div>
           </motion.div>
         )}
